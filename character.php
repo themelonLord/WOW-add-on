@@ -4,9 +4,101 @@
 <head>
     <title>WOW Add on</title>
     <meta name="viewport" content="width=device-width, initial-scale=.5">
-    <link type="text/css" rel="stylesheet" href="../libraries/bootstrap/css/bootstrap.css" />
-    <link type="text/css" rel="stylesheet" href="../libraries/font-awesome/css/font-awesome.css" />    
-    <link type="text/css" rel="stylesheet" href="../libraries/slider/css/slider.css" />
+    <link type="text/css" rel="stylesheet" href="assets/libraries/bootstrap/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="assets/libraries/font-awesome/css/font-awesome.css" />    
+    <link type="text/css" rel="stylesheet" href="assets/libraries/slider/css/slider.css" />
+	
+	<? include 'parsejson.php' ?>
+	
+	<script type="text/javascript">
+		function getRaceByID(id)
+		{
+			switch(id)
+			{
+				case 1:
+				return "Human";
+				break;
+				case 2:
+				return "Orc";
+				break;
+				case 3:
+				return "Dwarf";
+				break;
+				case 4:
+				return "Night Elf";
+				break;
+				case 5:
+				return "Undead";
+				break;
+				case 6:
+				return "Tauren";
+				break;
+				case 7:
+				return "Gnome";
+				break;
+				case 8:
+				return "Troll";
+				break;
+				case 9:
+				return "Goblin";
+				break;
+				case 10:
+				return "Blood Elf";
+				break;
+				case 11:
+				return "Draenei";
+				break;
+				case 22:
+				return "Worgen";
+				break;
+				case 24:
+				case 25:
+				case 26:
+				return "Pandaren";
+				break;
+			}
+		}
+		
+		function getClassByID(id)
+		{
+			switch(id)
+			{
+				case 1:
+				return "Warrior";
+				break;
+				case 2:
+				return "Paladin";
+				break;
+				case 3:
+				return "Hunter";
+				break;
+				case 4:
+				return "Rogue";
+				break;
+				case 5:
+				return "Priest";
+				break;
+				case 6:
+				return "Death Knight";
+				break;
+				case 7:
+				return "Shaman";
+				break;
+				case 8:
+				return "Mage";
+				break;
+				case 9:
+				return "Warlock";
+				break;
+				case 10:
+				return "Monk";
+				break;
+				case 11:
+				return "Druid";
+				break;
+			}
+		}
+	</script>
 	
 	<style type="text/css">
 		img
@@ -87,10 +179,9 @@
 	<div class ="panel panel-danger">
 	<!-- change the source to whatever value you get-->
 	<br/>
-	<img src = "../img/avatar.jpg" align = "left"/>
-	<div id = "characterName"> Welso </div>
-	<div id = "characterData"><small>86 Blood Elf Mistweaver Monk,</small></div>
-	<div id = "guild">Balling Bears </div>
+	<img src="http://us.battle.net/static-render/us/<? echo $blizz_json['thumbnail']; ?>" alt="Thumbnail" align="left"/>
+	<h1><? echo $blizz_json['name']; ?> - <? echo $blizz_json['realm']; ?></h1>
+	<h2><? echo $blizz_json['level']; ?> <script>document.write(getRaceByID(<? echo $blizz_json['race']; ?>)+ " "); document.write(getClassByID(<? echo $blizz_json['class']; ?>));</script></h2>
 	</div>
 	<div class = "panel-body">
 	blah blah
@@ -104,11 +195,8 @@
 	This skeleton was developed by Noel!
 	</div>
     
-    <script src="../libraries/jquery/jquery-2.0.3.min.js"></script>
-    <script src="../libraries/bootstrap/js/bootstrap.min.js"></script>  
-    <script src="../libraries/slider/js/bootstrap-slider.js"></script>
-
-    
+    <script src="assets/libraries/jquery/jquery-2.0.3.min.js"></script>
+    <script src="assets/libraries/bootstrap/js/bootstrap.min.js"></script>  
 </body>
 
 </html>
